@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./web/bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
@@ -14,6 +17,7 @@
     "http-errors": "~1.6.3",
     "knex": "^0.20.9",
     "morgan": "~1.9.1",
+    "pem-jwk": "^2.0.0",
     "pg": "^7.18.1"
   }
 }
