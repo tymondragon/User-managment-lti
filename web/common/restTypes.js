@@ -62,14 +62,14 @@ class AGPayload {
 }
 
 class SetupParameters {
-  constructor() {
+  constructor(devPortalHost) {
     this.privateKey = "";
     this.publicKey = "";
     this.tokenEndPoint = "";
     this.oidcAuthUrl = "";
     this.issuer = "";
     this.applicationId = "";
-    this.devPortalHost = "";
+    this.devPortalHost = devPortalHost;
     this.cookies = "";
   }
 }

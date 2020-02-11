@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 let jwk2pem = require('pem-jwk').jwk2pem
+const setupConfig = require('../junk.json');
+
 const {
   AGPayload,
   ContentItem,
@@ -9,6 +11,16 @@ const {
   GroupsPayload,
   SetupParameters
 } = require("../web/common/restTypes");
+const ltiAdv = require('../lti/lti-adv.js')
+
+let jwtPayload;
+
+router.post('/lti13', function (req, res, next) {
+  jwtPayload = new JWTPayload();
+  ltiAdv.verifyToken(req, jwtPayload, setupConfig);
+});
+
+
 
 router.get('/login', function (req, res, next) {
   req.session = {
@@ -24,6 +36,3 @@ router.get('/logout', function (req, res, next) {
 });
 
 module.exports = router;
-
-
-  // req.hypermediaBase = `${ req.protocol }://${ req.get('host') }`;
